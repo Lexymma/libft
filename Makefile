@@ -17,26 +17,28 @@ SRCS = ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 	ft_strrchr.c ft_atoi.c ft_strnstr.c ft_strmapi.c ft_substr.c \
 	ft_strjoin.c ft_strtrim.c ft_itoa.c ft_striteri.c ft_putchar_fd.c \
 	ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_split.c ft_calloc.c \
+	get_next_line_utils.c get_next_line.c ft_lstnew.c ft_lstadd_front.c \
+	ft_lstsize.c ft_lstlast.c ft_lstdelone.c ft_lstiter.c ft_lstadd_back.c \
+	ft_lstclear.c ft_lstmap.c \
 
-BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstdelone.c \
-			  ft_lstiter.c ft_lstadd_back.c ft_lstclear.c ft_lstmap.c \
+# BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstdelone.c \
+# 			  ft_lstiter.c ft_lstadd_back.c ft_lstclear.c ft_lstmap.c \
 
 
 NAME = libft.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBC = ar rcs
+AR = ar rcs
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
 RM = rm -rf
 
 $(NAME): $(OBJS)
-	$(LIBC) $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(LIBC) $(NAME) $(BONUS_OBJS) $(OBJS)
+# bonus: $(OBJS) $(BONUS_OBJS)
+# 	$(AR) $(NAME) $(BONUS_OBJS) $(OBJS)
 
 %.c%.o: $(SRCS)
 	$(CC) $(FLAGS) -c -o $@ $<
